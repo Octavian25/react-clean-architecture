@@ -1,0 +1,4 @@
+/src/serviceWorkerRegistration.js
+/src/infrastructure/services/logger/elastic-console.jsx
+/src/infrastructure/services/local/elastic-get-local.jsx
+/src/infrastructure/services/local/elastic-write-local.jsx
