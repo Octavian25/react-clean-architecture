@@ -1,0 +1,203 @@
+{
+	// Place your nagagold-grocery workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+    "baseServiceAPI": {
+        "scope": "",
+        "prefix": "initiBaseService",
+        "body": [
+            "const $1 = {",
+            "  $2: async (data) => {",
+            "\tconst response = await $3($4, data);",
+            "\treturn response;",
+            "  },",
+            "};",
+            "",
+            "export default $1;"
+        ]
+    },
+    "initAction": {
+        "scope": "",
+        "prefix": "initAction",
+        "body": [
+            "export const $1 = \"[$2] $3\";",
+            "",
+            "export const $4 =({$5}) => ({",
+            "\ttype : $1",
+            "})"
+        ]
+    },
+    "initMiddleware": {
+        "prefix": "initMiddleware",
+        "body": [
+            "//API => call api in infrastructure -> service -> api",
+            "// log => for call console.log and dynamic console.log",
+            "//writeLocal for write data to local ( dynamic write depend on mode in env) if production its automatically encrypted",
+            "//getLocal for get data from local ( dynamic write depend on mode in env) if production its automatically encrypted",
+            "// toas for show toast to screen, its have 4 varians (.Success , .Failed, .Warning, .Info)",
+            "// sweetalert for show sweetalert to screen, its have 4 varians (.Success , .Failed, .Warning, .Info)",
+            "// dispatch for dispactching action, like store data to reducer, and others",
+            "// getState is FUNCTION for get current data in your state (reducer), just call getState().yourReducer.yourData",
+            "",
+            "",
+            "const $1 =",
+            "  ({ api, log, writeLocal, getLocal, toast, sweetalert }) => ",
+            "  ({ dispatch, getState }) =>",
+            "  (next) =>",
+            "  async (action) => {",
+            "\tnext(action);",
+            "\tif (action.type === $2) {",
+            "\t",
+            "\t}",
+            "  };",
+            "",
+            "  const data = [$1];",
+            "",
+            "  export default data;"
+        ]
+    },
+    "initReducer": {
+        "prefix": "initReducer",
+        "body": [
+            "// Type your data here, it can be string, or any type of data, just write your variable",
+            "const initialState = {",
+            "feedback: [],",
+            "error: null,",
+            "isEdit: false,",
+            "};",
+            "",
+            "const $1 = (state = initialState, action) => {",
+            "  switch (action.type) {",
+            "\tcase $2 :",
+            "\t  return {",
+            "\t\t...state,",
+            "\t\t$3",
+            "\t  }",
+            "\tdefault:",
+            "\t  return state;",
+            "  }",
+            "};",
+            "",
+            "export default $1;"
+        ]
+    },
+    "initSelector": {
+        "prefix": "initSelector",
+        "body": [
+            "const get$1 = (state) => state.$2;"
+        ]
+    },
+    "initAPI": {
+        "prefix": "initAPI",
+        "body": [
+            "import get from \"../../../axios/get\";",
+            "import post from \"../../../axios/post\";",
+            "import deleteAxios from \"../../../axios/delete\";",
+            "import put from \"../../../axios/put\";",
+            "import word from \"../../../shared/static\";",
+            "const $1 = {",
+            "  getAll$2: async () => {",
+            "\tconst response = await get.AxiosGet(word.URL_GET_ALL_$3);",
+            "\treturn response;",
+            "  },",
+            "  add$2: async (data) => {",
+            "\tconst response = await post.AxiosPost(word.URL_ADD_$3, data);",
+            "\treturn response;",
+            "  },",
+            "  delete$2: async (data) => {",
+            "\tconst response = await deleteAxios.AxiosDelete(",
+            "\t  word.URL_DELETE_$3 + data",
+            "\t);",
+            "\treturn response;",
+            "  },",
+            "  edit$2: async (url, data) => {",
+            "\tconst response = await put.AxiosPut(word.URL_UPDATE_$3 + url, data);",
+            "\treturn response;",
+            "  },",
+            "};",
+            "",
+            "export default $1;"
+        ]
+    },
+    "addColumnObject": {
+        "prefix": "addColumnObject",
+        "body": [
+            "{",
+            "\t  dataField: \"$1\",",
+            "\t  text: \"$2\",",
+            "\t  align: \"left\",",
+            "\t  sort: true,",
+            "\t},"
+        ]
+    },
+    "ifresponse": {
+        "prefix": "ifresponse",
+        "body": [
+            "if(response?.value !== null){",
+            "",
+            "\t\t} else {",
+            "\t\t\t",
+            "\t\t}"
+        ]
+    },
+    "handleFlow": {
+        "prefix": "handleFlow",
+        "body": [
+            "  const handle$1Flow =",
+            "  ({ api, log, writeLocal, getLocal, toast, sweetalert }) =>",
+            "  ({ dispatch, getState }) =>",
+            "  (next) =>",
+            "  async (action) => {",
+            "\tnext(action);",
+            "\t$2",
+            "  };"
+        ]
+    },
+    "initFormComponent": {
+        "prefix": "initFormComponent",
+        "body": [
+            "import React from \"react\";",
+            "import { Field, reduxForm } from \"redux-form\";",
+            "import {",
+            "  renderField,",
+            "  renderFieldSelect,",
+            "  upperCaseWord,",
+            "} from \"../../../../infrastructure/shared/redux-form\";",
+            "import { useDispatch } from \"react-redux\";",
+            "import ButtonSave from \"../../themes/button_save\";",
+            "",
+            "const Form$1 = () => {",
+            "  const dispatch = useDispatch();",
+            "  return (",
+            "\t<div className=\"row justify-content-center\">",
+            "\t  <div className=\"col-lg-12\">",
+            "\t\t<div className=\"row justify-content-end\">",
+            "\t\t  <div className=\"col-lg-2\">",
+            "\t\t\t<ButtonSave",
+            "\t\t\t  label=\"Simpan\"",
+            "\t\t\t  onClick={() => dispatch(add$1)}",
+            "\t\t\t/>",
+            "\t\t  </div>",
+            "\t\t</div>",
+            "\t  </div>",
+            "\t</div>",
+            "  );",
+            "};",
+            "",
+            "export default reduxForm({",
+            "  form: \"Form$1\",",
+            "})(Form$1);",
+            ""
+        ]
+    },
+    "dicti": {
+        "prefix": "adddictionary",
+        "body": [
+            "import dictionary from \"../../infrastructure/shared/dictionary\";"
+        ]
+    }
+}
